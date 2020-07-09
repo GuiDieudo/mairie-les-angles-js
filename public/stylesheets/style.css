@@ -159,6 +159,10 @@ img {
   padding-top: 100px;
 }
 
+.carousel {
+  cursor: pointer;
+}
+
 .carousel-control-next,
 .carousel-control-prev {
   border: 0;
