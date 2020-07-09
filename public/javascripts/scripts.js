@@ -14,7 +14,9 @@ function scroll_to(clicked_link, nav_height) {
 
 function changeIframe(e) {
   var link = $(e.currentTarget).data("link")
+  console.log("changeIframe -> link", link)
   var title = $(e.currentTarget).data("title")
+  console.log("changeIframe -> title", title)
 
   $(".embed-dynamic-title").html(title)
 
@@ -54,6 +56,63 @@ function setupTimers() {
   startTimer()
 }
 
+function populateFiles({ files }) {
+  console.log("populateFiles -> populateFiles", files)
+  var container = $("#files-list .carousel-inner")
+  for (i = 0; i < files.length; i++) {
+    container.append(
+      ` <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 ${
+        i === 0 ? "active" : ""
+      } changer"
+            data-toggle="modal" data-target="#fullscreeniFrame" contenteditable="false"
+            data-link="${files[i].url}" data-title="${files[i].name}">
+            <img src="${
+              files[i].thumbnail
+            }" class="img-fluid mx-auto d-block" alt="${files[i].name}">
+            <p class="mb-3 mt-3">${files[i].name}</p>
+        </div>`
+    )
+    // container.append(
+    //   "<div " +
+    //     'class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 ' +
+    //     (i === 0 ? "active" : "") +
+    //     ' changer" data-toggle="modal" data-target="#fullscreeniFrame"' +
+    //     ' contenteditable="false" data-link="' +
+    //     files[i].url +
+    //     '" data-title="' +
+    //     files[i].name +
+    //     '"> <img src="' +
+    //     files[i].thumbnail +
+    //     '" class="img-fluid mx-auto d-block" alt="' +
+    //     files[i].name +
+    //     '">' +
+    //     '<p class="mb-3 mt-3">' +
+    //     files[i].name +
+    //     "</p>" +
+    //     "</div>"
+    // )
+  }
+  $(".changer").click(function(e) {
+    changeIframe(e)
+  })
+
+  $("#files-list").removeClass("d-none")
+}
+
+function cleanFilesContainer() {
+  $("#files-list .carousel-inner").empty()
+}
+
+function setFiles(directoryName) {
+  console.log("setFiles -> setFiles directoryName", directoryName)
+
+  cleanFilesContainer()
+  fetch("/directory/" + directoryName)
+    .then(response => response.json())
+    .then(populateFiles)
+    .catch(error => console.log("Erreur : " + error))
+}
+
 jQuery(document).ready(function() {
   /*
     Timeout
@@ -66,6 +125,7 @@ jQuery(document).ready(function() {
   $("#loading").attr("style", "display: none !important")
   $("#main").removeClass("d-none")
 
+  $("#files-list").addClass("d-none")
   /*
     Animation
   */
@@ -91,7 +151,7 @@ jQuery(document).ready(function() {
   /*
 	    Carousel
 	*/
-  $("#carousel-example").on("slide.bs.carousel", function(e) {
+  $(".carousel-scrollable").on("slide.bs.carousel", function(e) {
     /*
 	        CC 2.0 License Iatek LLC 2018
 	        Attribution required
