@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "prod": "pm2 start ./bin/www",
+    "stop:pm2": "pm2 stop all",
+    "delete:pm2": "pm2 delete all",
+    "list:pm2": "pm2 list all"
   },
   "dependencies": {
     "consolidate": "^0.15.1",
@@ -13,6 +17,7 @@
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "morgan": "~1.9.1",
+    "pm2": "^4.4.0",
     "swig": "^1.4.2"
   },
   "devDependencies": {

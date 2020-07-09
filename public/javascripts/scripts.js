@@ -14,9 +14,7 @@ function scroll_to(clicked_link, nav_height) {
 
 function changeIframe(e) {
   var link = $(e.currentTarget).data("link")
-  console.log("changeIframe -> link", link)
   var title = $(e.currentTarget).data("title")
-  console.log("changeIframe -> title", title)
 
   $(".embed-dynamic-title").html(title)
 
