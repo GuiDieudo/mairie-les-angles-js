@@ -55,13 +55,8 @@
             <div class="navbar navbar-dark bg-dark shadow-sm">
                 <div class="container d-flex justify-content-between">
                     <a href="#" class="navbar-brand d-flex align-items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"
-                            class="mr-2" viewBox="0 0 24 24" focusable="false">
-                            <path
-                                d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-                            <circle cx="12" cy="13" r="4" /></svg>
-                        <strong>Album</strong>
+                        <img src="./img/Ville_Les_Angles.png" class="rounded-circle" height="50px"
+                            alt="Logo Mairie des Angles">
                     </a>
                     <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
                         aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,7 +71,7 @@
         <main role="main">
             <div class="container mb-5 mt-5">
                 <div class="container mb-5">
-                    <h2 class="featurette-heading text-center mb-3">SITES
+                    <h2 class="featurette-heading text-center mb-3">SITES INSTITUTIONNELS
                         <!-- <span class="text-muted">
                             It’ll blow your mind.
                         </span> -->
@@ -112,7 +107,7 @@
                     </div>
 
                     <div class="changer" data-toggle="modal" data-target="#fullscreeniFrame" contenteditable="false"
-                        data-link="https://www.gard.gouv.fr/" data-title="Prefet du Gard">
+                        data-link="http://www.gard.gouv.fr/" data-title="Prefet du Gard">
                         <img src="./img/Prefet_Du_Gard.jpg" class="img-fluid rounded-circle" alt="Logo Prefet du Gard">
                         <h3 class="mb-3 mt-3">Préfet du Gard</h3>
                         <p>
@@ -129,7 +124,7 @@
 
                     </div>
 
-                    <div>
+                    <!-- <div>
                         <a href="https://www.grandavignon.fr/fr" target="_blank" role="button">
                             <img src="./img/Grand_Avignon.jpg" class="img-fluid rounded-circle"
                                 alt="Logo Grand Avignon">
@@ -140,54 +135,54 @@
                                     role="button">Visiter
                                     le
                                     site web
-                                    &raquo;</a>
-                                <!-- <button class="btn btn-secondary changer" data-toggle="modal"
+                                    &raquo;</a> -->
+                    <!-- <button class="btn btn-secondary changer" data-toggle="modal"
                                 data-target="#fullscreeniFrame" contenteditable="false"
                                 data-link="https://www.grandavignon.fr/fr" data-title="Le Grand Avignon">
                                 Visiter le site web
                                 &raquo;
                             </button> -->
-                            </p>
+                    <!-- </p>
                         </a>
                     </div>
 
-                </div>
+                </div> -->
 
 
 
 
-            </div><!-- /.container -->
-            <hr class="featurette-divider">
+                </div><!-- /.container -->
+                <hr class="featurette-divider">
 
 
-            <!-- Top content -->
-            <!-- <div class="top-content"> -->
-            <div class="container mb-5 mt-5">
-                <div class="container mb-5">
+                <!-- Top content -->
+                <!-- <div class="top-content"> -->
+                <div class="container mb-5 mt-5">
+                    <div class="container mb-5">
 
-                    <h2 class="featurette-heading text-center mb-3">DOCUMENTS
-                        <!-- <span class="text-muted">It’ll blow your mind.</span> -->
-                    </h2>
-                    <!-- <p class="lead text-center">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula
+                        <h2 class="featurette-heading text-center mb-3">AFFICHAGE OBLIGATOIRES
+                            <!-- <span class="text-muted">It’ll blow your mind.</span> -->
+                        </h2>
+                        <!-- <p class="lead text-center">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula
                         porta
                         felis
                         euismod
                         semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus
                         ac cursus
                         commodo.</p> -->
-                </div>
-                <div class="container-fluid">
-                    <div id="carousel-example" class="carousel slide" data-ride="carousel" data-touch="true">
-                        <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                            {% for file in files %}
-                            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.first %}active{% endif %} changer"
-                                data-toggle="modal" data-target="#fullscreeniFrame" contenteditable="false"
-                                data-link="{{ file.url }}" data-title="{{ file.name }}">
+                    </div>
+                    <div class="container-fluid">
+                        <div id="carousel-example" class="carousel slide" data-ride="carousel" data-touch="true">
+                            <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                                {% for file in files %}
+                                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 {% if loop.first %}active{% endif %} changer"
+                                    data-toggle="modal" data-target="#fullscreeniFrame" contenteditable="false"
+                                    data-link="{{ file.url }}" data-title="{{ file.name }}">
 
-                                <img src="{{ file.thumbnail }}" class="img-fluid mx-auto d-block" alt="img1">
-                                <p class="mb-3 mt-3">{{ file.name}}</p>
+                                    <img src="{{ file.thumbnail }}" class="img-fluid mx-auto d-block" alt="img1">
+                                    <p class="mb-3 mt-3">{{ file.name}}</p>
 
-                                <!-- <p class="mb-3 mt-3">
+                                    <!-- <p class="mb-3 mt-3">
                                     <button class="btn btn-secondary changer" data-toggle="modal"
                                         data-target="#fullscreeniFrame" contenteditable="false"
                                         data-link="{{ file.url }}" data-title="{{ file.name }}">
@@ -195,22 +190,22 @@
                                         &raquo;
                                     </button>
                                 </p> -->
+                                </div>
+                                {% endfor %}
+
+
                             </div>
-                            {% endfor %}
-
-
+                            <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Précédent</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Suivant</span>
+                            </a>
                         </div>
-                        <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Précédent</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Suivant</span>
-                        </a>
                     </div>
                 </div>
-            </div>
         </main>
 
         <div class="modal fade modal-fullscreen  footer-to-bottom" id="fullscreeniFrame" tabindex="-1" role="dialog"
@@ -244,7 +239,11 @@
                 <div class="row">
 
                     <div class="col">
-                        Crée par <a href="https://vaka.fr">Vaka</a>.
+                        <a href="https://www.ville-les-angles.fr/fr" target="_blank">
+                            <!-- Crée par <a href="https://vaka.fr">Vaka</a>. -->
+                            <img src="./img/Ville_Les_Angles.png" class="rounded-circle" height="50px"
+                                alt="Logo Mairie des Angles">
+                        </a>
                     </div>
 
                 </div>

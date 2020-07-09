@@ -6,8 +6,6 @@ const fs = require("fs")
 const directoryPath = path.join(__dirname, "../../public/pdfs/")
 
 const sorter = (a, b) => {
-  console.log(fs.statSync(`${directoryPath}/${a}`).mtime.getTime())
-  console.log(fs.statSync(`${directoryPath}/${b}`).mtime.getTime())
   return (
     fs.statSync(`${directoryPath}/${a}`).mtime.getTime() -
     fs.statSync(`${directoryPath}/${b}`).mtime.getTime()
